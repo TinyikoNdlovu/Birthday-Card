@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, ImageBackground } from 'react-native';
 
 export default function App() {
 
@@ -10,8 +10,9 @@ export default function App() {
   const [lastText, setLastText] = useState("Happy -->BIRTHDAY<-- to you");
 
   return (
-    <View style={styles.container}>
-      <Image
+    
+       <ImageBackground source={require('./assets/background.png')} resizeMode="cover" style={styles.image}>
+        <Image
         style={styles.stretch}
         source={require('./assets/butterflyflower.png')}
       />
@@ -23,37 +24,36 @@ export default function App() {
         style={styles.tinyPic}
         source={require('./assets/flower.png')}
       />
-      
-      <StatusBar style="auto" />
-    </View>
+    </ImageBackground>
+    
     
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  image: {
     flex: 1,
-    backgroundColor: '#fff',
+    justifyContent: "center",
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  titleText: {
-    width: 350,
-    fontSize: 15,
-    fontWeight: "bold",
-    color: 'green'
   },
   stretch: {
     width: 400,
     height: 200,
     resizeMode: 'stretch',
   },
+  titleText: {
+    width: 350,
+    fontSize: 15,
+    fontWeight: "bold",
+    color: 'ivory'
+  },
   bodyText: {
     width: 300,
     fontFamily: 'serif',
-    fontSize: 15,
+    fontSize: 19,
     lineHeight: 18,
-    fontWeight: "900",
+    fontWeight: "bold",
     fontStyle: 'italic',
     color: 'purple'
   },
